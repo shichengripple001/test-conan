@@ -10,6 +10,7 @@ jobs:
       - name: test conan build
         run: |
           choco install conan --force -y
+          dir
           cd examples/libraries/poco/md5
           conan profile new default --detect
           conan profile update settings.compiler.libcxx=libstdc++11 default
