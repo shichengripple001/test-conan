@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: test conan build
         run: |
-          choco install conan --force -y
-          $env:path+=";C:\ProgramData"
+          $cmd='choco install conan --force -y'
+          Start-Process -Verb RunAs cmd.exe -Args '/c', $cmd
           cd libraries/poco/md5
           conan profile new default --detect
           conan profile update settings.compiler.libcxx=libstdc++11 default
