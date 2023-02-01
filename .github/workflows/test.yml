@@ -10,7 +10,7 @@ jobs:
       - name: test conan build
         run: |
           $cmd='choco install conan --force -y'
-          Start-Process -Verb RunAs cmd.exe -Args '/c', $cmd
+          runas.exe /savecred /user:administrator "scripts\test.ps" 
           cd libraries/poco/md5
           conan profile new default --detect
           conan profile update settings.compiler.libcxx=libstdc++11 default
